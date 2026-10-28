@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nama Kamu — Showreel & Portofolio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap">
+<style>
+:root{--bg:#E4E3DE;--ink:#1D1F21;--mute:#5E6064;--line:#C6C5BF;--card:#D6D5CF;--rec:#E5391F;--stage:#1D1F21;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#25272A;--ink:#ECEAE4;--mute:#9A9C9F;--line:#3A3D40;--card:#2F3235;--stage:#17181A;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#25272A;--ink:#ECEAE4;--mute:#9A9C9F;--line:#3A3D40;--card:#2F3235;--stage:#17181A;color-scheme:dark}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{background:var(--bg);color:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;line-height:1.55}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rec);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:56px}
+nav b{font-weight:800;letter-spacing:-.01em}
+nav div{display:flex;gap:22px;font-size:.95rem}
+nav a{text-decoration:none;color:var(--mute)}nav a:hover{color:var(--ink)}
+.hero{padding:40px 0 24px}
+h1{font-size:clamp(2.6rem,8.5vw,6.6rem);line-height:.95;font-weight:800;letter-spacing:-.035em;max-width:11ch}
+.sub{margin-top:18px;color:var(--mute);max-width:46ch;font-size:1.1rem}
+.reel{position:relative;margin-top:32px;aspect-ratio:16/9;background:var(--stage);border-radius:6px;overflow:hidden;cursor:pointer;border:0;width:100%;display:block;color:#ECEAE4;text-align:left}
+.reel .bg{position:absolute;inset:0;background:radial-gradient(120% 90% at 20% 10%,#4a5560,transparent 60%),radial-gradient(90% 90% at 90% 100%,#5b4a42,transparent 60%),#17181A}
+.reel video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.rec{position:absolute;top:14px;left:16px;display:flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem}
+.rec i{width:10px;height:10px;border-radius:50%;background:var(--rec);animation:b 1.4s steps(1) infinite}
+@keyframes b{50%{opacity:.15}}
+.tc{position:absolute;top:14px;right:16px;font-variant-numeric:tabular-nums;font-size:.9rem;opacity:.85}
+.play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;background:#ECEAE4;display:grid;place-items:center;transition:transform .2s,background .2s}
+.reel:hover .play{transform:translate(-50%,-50%) scale(1.08);background:var(--rec)}
+.play:after{content:"";border-left:22px solid #1D1F21;border-top:13px solid transparent;border-bottom:13px solid transparent;margin-left:6px}
+.reel:hover .play:after{border-left-color:#fff}
+.cap{position:absolute;left:16px;bottom:14px;font-size:.95rem;opacity:.9}
+section{padding:56px 0}
+h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em}
+.bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:16px;margin-bottom:24px}
+.tabs{display:flex;gap:8px}
+.tabs button{font:inherit;background:none;border:1px solid var(--line);color:var(--ink);padding:7px 16px;border-radius:99px;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.grid{columns:3 280px;column-gap:14px}
+.it{break-inside:avoid;margin:0 0 14px;position:relative;display:block;width:100%;border:0;padding:0;background:var(--card);border-radius:4px;overflow:hidden;cursor:pointer;text-align:left;color:#fff}
+.it .ph{width:100%;display:block}
+.it img,.it video{width:100%;display:block}
+.it .meta{position:absolute;inset:auto 0 0 0;padding:34px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,.65));opacity:0;transition:opacity .2s}
+.it:hover .meta,.it:focus-visible .meta{opacity:1}
+.it .meta b{display:block;font-weight:600}.it .meta span{font-size:.85rem;opacity:.8}
+.badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.6);color:#fff;font-size:.78rem;padding:3px 9px;border-radius:99px;display:flex;gap:6px;align-items:center}
+.badge:before{content:"";border-left:7px solid #fff;border-top:4.5px solid transparent;border-bottom:4.5px solid transparent}
+.badge.f:before{display:none}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:40px;border-top:1px solid var(--line)}
+.about p{color:var(--mute);max-width:52ch;margin-top:14px}
+.about ul{list-style:none;padding:0;border-top:1px solid var(--line)}
+.about li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line)}
+.about li span{color:var(--mute)}
+.contact{border-top:1px solid var(--line)}
+.contact .big{display:inline-block;margin-top:16px;font-size:clamp(1.6rem,6vw,3.6rem);font-weight:800;letter-spacing:-.03em;text-decoration:none;border-bottom:3px solid var(--rec)}
+.contact .soc{margin-top:22px;display:flex;gap:20px;flex-wrap:wrap;color:var(--mute)}
+footer{padding:24px 0 40px;color:var(--mute);font-size:.9rem}
+dialog{border:0;padding:0;background:transparent;max-width:min(1100px,94vw);width:100%;color:#ECEAE4}
+dialog::backdrop{background:rgba(10,10,11,.88)}
+.lb{background:#17181A;border-radius:6px;overflow:hidden}
+.lb .stage{display:grid;place-items:center;max-height:80vh;background:#000}
+.lb .stage img,.lb .stage video{max-width:100%;max-height:80vh}
+.lb .empty{padding:18vh 24px;text-align:center;color:#9A9C9F}
+.lb .info{display:flex;justify-content:space-between;gap:12px;padding:12px 16px;align-items:center}
+.lb button{font:inherit;background:#ECEAE4;color:#1D1F21;border:0;border-radius:99px;padding:6px 16px;cursor:pointer}
+@media(max-width:720px){.about{grid-template-columns:1fr}nav div{gap:14px}.play{width:64px;height:64px}}
+@media(prefers-reduced-motion:reduce){.rec i{animation:none}*{transition:none!important}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Nama Kamu</b><div><a href="#karya">Karya</a><a href="#tentang">Tentang</a><a href="#kontak">Kontak</a></div></div></nav>
+
+<main class="wrap">
+<header class="hero">
+  <h1>Foto & video yang bercerita.</h1>
+  <p class="sub">Fotografer dan videografer berbasis di Bali. Event, brand, dan dokumenter perjalanan.</p>
+  <!-- Ganti data-src dengan file/URL showreel kamu (mp4) -->
+  <button class="reel" id="reel" data-src="" aria-label="Putar showreel">
+    <span class="bg"></span>
+    <span class="rec"><i></i>Showreel 2026</span>
+    <span class="tc">00:00:00 / 01:30</span>
+    <span class="play"></span>
+    <span class="cap">Kompilasi proyek terbaik, 90 detik</span>
+  </button>
+</header>
+
+<section id="karya">
+  <div class="bar">
+    <h2>Karya pilihan</h2>
+    <div class="tabs" role="group" aria-label="Filter">
+      <button aria-pressed="true" data-f="all">Semua</button>
+      <button aria-pressed="false" data-f="foto">Foto</button>
+      <button aria-pressed="false" data-f="video">Video</button>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
+
+<section class="about" id="tentang">
+  <div>
+    <h2>Tentang saya</h2>
+    <p>Tulis 2–3 kalimat tentang gaya kerjamu: apa yang kamu suka rekam, bagaimana prosesmu, dan jenis klien yang cocok bekerja denganmu.</p>
+  </div>
+  <ul>
+    <li>Layanan <span>Foto, video, editing</span></li>
+    <li>Peralatan <span>Isi kamera & drone kamu</span></li>
+    <li>Klien <span>Isi nama klien / brand</span></li>
+    <li>Lokasi <span>Bali, bisa travel</span></li>
+  </ul>
+</section>
+
+<section class="contact" id="kontak">
+  <h2>Punya proyek?</h2>
+  <a class="big" href="mailto:halo@contoh.com">halo@contoh.com</a>
+  <div class="soc"><a href="#">Instagram</a><a href="#">YouTube</a><a href="#">Vimeo</a><a href="#">WhatsApp</a></div>
+</section>
+</main>
+<footer><div class="wrap">© 2026 Nama Kamu</div></footer>
+
+<dialog id="dlg"><div class="lb"><div class="stage" id="stage"></div><div class="info"><span id="cap"></span><button id="close">Tutup</button></div></div></dialog>
+
+<script>
+/* ISI KARYAMU DI SINI.
+   type: "foto" atau "video" | src: nama file / URL (kosongkan = placeholder) | ratio: lebar/tinggi */
+const works=[
+ {type:"foto",title:"Judul foto 1",meta:"Portrait · 2026",ratio:"4/5",src:"",hue:200},
+ {type:"video",title:"Judul video 1",meta:"Brand film · 1:12",ratio:"16/9",src:"",hue:15},
+ {type:"foto",title:"Judul foto 2",meta:"Event · 2026",ratio:"3/2",src:"",hue:150},
+ {type:"foto",title:"Judul foto 3",meta:"Travel · 2025",ratio:"4/5",src:"",hue:30},
+ {type:"video",title:"Lorena",meta:"Video portrait",ratio:"9/16",src:"https://res.cloudinary.com/xrjneedr/video/upload/v1793196799/LORENA_FIX2.mp4",hue:260},
+ {type:"foto",title:"Judul foto 4",meta:"Produk · 2025",ratio:"1/1",src:"",hue:340},
+ {type:"video",title:"Judul video 3",meta:"Dokumenter · 3:40",ratio:"16/9",src:"",hue:90},
+ {type:"foto",title:"Judul foto 5",meta:"Landscape · 2025",ratio:"3/2",src:"",hue:220}
+];
+const grid=document.getElementById("grid"),dlg=document.getElementById("dlg"),stage=document.getElementById("stage"),cap=document.getElementById("cap");
+function draw(f){
+  grid.innerHTML="";
+  works.filter(w=>f==="all"||w.type===f).forEach(w=>{
+    const b=document.createElement("button");b.className="it";b.setAttribute("aria-label",w.title);
+    const inner=w.src?(w.type==="foto"?`<img src="${w.src}" alt="${w.title}" loading="lazy">`:`<video src="${w.src}" autoplay loop muted playsinline></video>`)
+      :`<div class="ph" style="aspect-ratio:${w.ratio};background:linear-gradient(135deg,hsl(${w.hue} 22% 38%),hsl(${(w.hue+40)%360} 25% 22%))"></div>`;
+    b.innerHTML=`${inner}<span class="badge ${w.type==="foto"?"f":""}">${w.type==="video"?"Video":"Foto"}</span><span class="meta"><b>${w.title}</b><span>${w.meta}</span></span>`;
+    b.onclick=()=>open(w);grid.appendChild(b);
+  });
+}
+function open(w){
+  stage.innerHTML=w.src?(w.type==="foto"?`<img src="${w.src}" alt="${w.title}">`:`<video src="${w.src}" controls autoplay loop playsinline></video>`)
+    :`<div class="empty">Placeholder. Isi <code>src</code> dengan file ${w.type} kamu.</div>`;
+  cap.textContent=w.title+" — "+w.meta;dlg.showModal();
+}
+document.querySelectorAll(".tabs button").forEach(t=>t.onclick=()=>{
+  document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x===t));draw(t.dataset.f)});
+document.getElementById("reel").onclick=e=>{
+  const s=e.currentTarget.dataset.src;
+  stage.innerHTML=s?`<video src="${s}" controls autoplay></video>`:`<div class="empty">Placeholder showreel. Isi <code>data-src</code> dengan file mp4 kamu.</div>`;
+  cap.textContent="Showreel 2026";dlg.showModal();
+};
+document.getElementById("close").onclick=()=>dlg.close();
+dlg.addEventListener("close",()=>{stage.innerHTML=""});
+dlg.addEventListener("click",e=>{if(e.target===dlg)dlg.close()});
+draw("all");
+</script>
+</body>
+</html>
